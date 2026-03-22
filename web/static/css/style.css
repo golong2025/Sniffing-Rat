@@ -1,0 +1,16 @@
+:root {
+    --bg-color: #0d0e12;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary-color: #007aff;
+    --text-color: #f5f5f7;
+}
+body { background: var(--bg-color); color: var(--text-color); font-family: 'Inter', sans-serif; }
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.glass { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; }
+.media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; padding: 1.5rem; }
+.media-item { border-radius: 12px; overflow: hidden; aspect-ratio: 1/1; background: #1a1a1a; cursor: pointer; transition: transform 0.3s; }
+.media-item:hover { transform: scale(1.05); }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+.modal-content { margin: 10% auto; padding: 2rem; border-radius: 16px; width: 90%; max-width: 500px; }
+/* ... (Styles simplified for push) */
