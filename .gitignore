@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+
+# Sniffing Rat Database (SENSITIVE - Contains intercepted traffic and credentials)
+db/*.db
+db/*.sqlite
+monitor.db
+*.db
+
+# Optional but recommended IDE settings
+.vscode/
+.idea/
