@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniffing Rat - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="/" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-network-wired"></i> Sniffing Rat Dashboard</h1>
+                </a>
+            </div>
+            <div class="stats" id="stats-panel">
+                <button id="btn-settings" class="settings-btn"><i class="fas fa-cog"></i> Settings</button>
+            </div>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal" style="z-index: 2000; cursor: pointer;">
+        <div class="modal-content" style="max-width: 90vw; background: transparent; box-shadow: none; text-align: center; padding: 0;">
+            <span class="close-btn" id="close-image" style="color: white; font-size: 2.5rem; position: fixed; right: 30px; top: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">&times;</span>
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+                <img id="image-element" src="" style="max-width: 90vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain; cursor: default;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal" style="z-index: 2000; cursor: pointer;">
+        <div class="modal-content" style="max-width: 90vw; background: transparent; box-shadow: none; text-align: center; padding: 0;">
+            <div style="position: fixed; top: 20px; right: 30px; display: flex; gap: 20px; align-items: center; z-index: 2001; pointer-events: none;">
+                <div style="pointer-events: auto;">
+                    <a id="video-download-btn" href="#" download="video.mp4" class="icon-btn" style="text-decoration: none; color: white; background: rgba(0,0,0,0.5); border: none; padding: 5px 15px;"><i class="fas fa-download"></i> Download</a>
+                </div>
+                <div style="pointer-events: auto;">
+                    <span class="close-btn" id="close-video" style="color: white; font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5); cursor: pointer;">&times;</span>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+                <video id="video-element" controls style="max-width: 90vw; max-height: 80vh; background: #000; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); cursor: default;"></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-settings">&times;</span>
+            <h2><i class="fas fa-filter"></i> Traffic Filters</h2>
+            <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--secondary-text);">Configure which devices and ports...</p>
+            <div class="form-group">
+                <label>Target IPs (comma separated)</label>
+                <input type="text" id="target-ips" placeholder="e.g. 192.168.1.143, 192.168.1.150">
+            </div>
+            <div class="form-group">
+                <label>Target Ports (comma separated)</label>
+                <input type="text" id="target-ports" placeholder="e.g. 80, 443">
+            </div>
+            <button id="save-settings" class="save-btn"><i class="fas fa-save"></i> Save Settings</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="view-dashboard">
+    <div class="dashboard-grid">
+        <section class="analytics-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Top 30 Domains</h2>
+                <a href="/traffic" class="icon-btn" style="text-decoration: none;">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="table-container small-table">
+                <table id="top-domains-table">
+                    <thead><tr><th>Domain</th><th>Hits</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+        <section class="credentials-section">
+            <div class="section-header">
+                <h2><i class="fas fa-key"></i> Intercepted Credentials</h2>
+                <a href="/credentials" class="icon-btn" style="text-decoration: none;">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="table-container small-table">
+                <table id="credentials-table">
+                    <thead><tr><th>Time</th><th>Domain</th><th>User</th><th>Pass</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <section class="media-section">
+        <div class="section-header">
+            <h2><i class="fas fa-images"></i> Media Intercepted</h2>
+            <a href="/media" class="icon-btn" style="text-decoration: none;">Gallery <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="media-grid glass" id="media-grid-preview"></div>
+    </section>
+</div>
+{% endblock %}
